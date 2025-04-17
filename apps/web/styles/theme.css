@@ -9,6 +9,44 @@
 
 /* Shadcn UI theme */
 @theme {
+  /* Brand colors */
+  --color-brand-50: #f4f3ff;
+  --color-brand-100: #ebeafd;
+  --color-brand-200: #dad7fd;
+  --color-brand-300: #beb7fb;
+  --color-brand-400: #9e8ef7;
+  --color-brand-500: #7d61f1;
+  --color-brand-600: #6b3fe8;
+  --color-brand-700: #5c2dd4;
+  --color-brand-800: #4a24ab;
+  --color-brand-900: #412191;
+  --color-brand-950: #261362;
+
+  /* Blue colors */
+  --color-brand-blue-50: #effaff;
+  --color-brand-blue-100: #daf2ff;
+  --color-brand-blue-200: #beafff;
+  --color-brand-blue-300: #91deff;
+  --color-brand-blue-400: #5dc9fd;
+  --color-brand-blue-500: #37adfa;
+  --color-brand-blue-600: #2c96f0;
+  --color-brand-blue-700: #1978dc;
+  --color-brand-blue-800: #1b60b2;
+  --color-brand-blue-900: #1c538c;
+  --color-brand-blue-950: #163255;
+
+  /* Slate colors */
+  --color-brand-slate-50: #f8fafc;
+  --color-brand-slate-100: #f1f5f9;
+  --color-brand-slate-200: #e2e8f0;
+  --color-brand-slate-300: #cbd5e1;
+  --color-brand-slate-400: #94a3b8;
+  --color-brand-slate-500: #64748b;
+  --color-brand-slate-600: #475569;
+  --color-brand-slate-700: #334155;
+  --color-brand-slate-800: #1e293b;
+  --color-brand-slate-900: #0f172a;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 

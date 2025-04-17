@@ -41,7 +41,8 @@ export function AppLogo({
 
   return (
     <Link aria-label={label ?? 'Home Page'} href={href ?? '/'}>
-      <LogoImage className={className} />
+      {/* <LogoImage className={className} /> */}
+      <h3 className={`text-brand-800 font-bold ${className}`}>CallBatch</h3>
     </Link>
   );
 }

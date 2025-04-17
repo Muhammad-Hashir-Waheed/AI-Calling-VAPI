@@ -1,14 +1,16 @@
 import { PageBody, PageHeader } from '@kit/ui/page';
 
-import { DashboardDemo } from '~/home/_components/dashboard-demo';
+import { routeIcons } from '~/config/navigation.config';
+
+import Dashboard from './_components/dashboard';
 
 export default function HomePage() {
   return (
     <>
-      <PageHeader description={'Your SaaS at a glance'} />
+      <PageHeader title="Dashboard" icon={routeIcons.dashboard} />
 
       <PageBody>
-        <DashboardDemo />
+        <Dashboard />
       </PageBody>
     </>
   );

@@ -1,0 +1,38 @@
+'use client';
+
+import { CallMinutesChartByBot } from './charts/call-minutes-chart-by-bot';
+import { CallMinutesChartByProperty } from './charts/call-minutes-chart-by-property';
+
+export default function Dashboard() {
+  function SectionTitle(props: React.PropsWithChildren) {
+    return (
+      <h1
+        className={
+          'font-heading text-brand-slate-800 mb-6 text-xl leading-none font-semibold tracking-tight dark:text-white'
+        }
+      >
+        {props.children}
+      </h1>
+    );
+  }
+
+  return (
+    <div
+      className={
+        'animate-in fade-in flex flex-col space-y-4 pb-36 duration-500'
+      }
+    >
+      <section>
+        <SectionTitle>Summary Statistics</SectionTitle>
+        <div
+          className={
+            'grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
+          }
+        >
+          <CallMinutesChartByProperty />
+          <CallMinutesChartByBot />
+        </div>
+      </section>
+    </div>
+  );
+}

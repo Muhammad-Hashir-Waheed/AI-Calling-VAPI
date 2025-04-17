@@ -15,7 +15,7 @@ import {
 } from '@kit/ui/dropdown-menu';
 import { Trans } from '@kit/ui/trans';
 
-import { navigationConfig } from '~/config/navigation.config';
+import { mobileNavigationConfig } from '~/config/navigation.config';
 
 /**
  * Mobile navigation for the home page
@@ -24,7 +24,7 @@ import { navigationConfig } from '~/config/navigation.config';
 export function HomeMobileNavigation() {
   const signOut = useSignOut();
 
-  const Links = navigationConfig.routes.map((item, index) => {
+  const Links = mobileNavigationConfig.routes.map((item, index) => {
     if ('children' in item) {
       return item.children.map((child) => {
         return (
