@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 
 import { ArrowRightIcon, LayoutDashboard } from 'lucide-react';
 
@@ -18,7 +17,6 @@ import { Trans } from '@kit/ui/trans';
 import { withI18n } from '~/lib/i18n/with-i18n';
 
 function Home() {
-  redirect('/auth/sign-in');
   return (
     <div className={'mt-4 flex flex-col space-y-24 py-14'}>
       <div className={'container mx-auto'}>

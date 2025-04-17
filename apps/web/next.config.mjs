@@ -54,6 +54,17 @@ const config = {
   /** We already do linting and typechecking as separate tasks in CI */
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+
+  async redirects() {
+    // Added this redirect to not show the home page.
+    return [
+      {
+        source: '/',
+        destination: '/auth/sign-in',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default config;
