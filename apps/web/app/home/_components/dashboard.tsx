@@ -1,5 +1,6 @@
 'use client';
 
+import { CallEndedReasonChart } from './charts/call-ended-reason-chart';
 import { CallMinutesChartByBot } from './charts/call-minutes-chart-by-bot';
 import { CallMinutesChartByProperty } from './charts/call-minutes-chart-by-property';
 import { CostBreakdownByPropertyChart } from './charts/cost-breakdown-by-property-chart';
@@ -28,13 +29,24 @@ export default function Dashboard() {
         <SectionTitle>Summary Statistics</SectionTitle>
         <div
           className={
-            'grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
+            'grid grid-cols-1 gap-9 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
           }
         >
           <CallMinutesChartByProperty />
           <CallMinutesChartByBot />
           <TotalCallsNumberChart />
           <CostBreakdownByPropertyChart />
+        </div>
+      </section>
+
+      <section className="mt-10">
+        <SectionTitle>Analysis</SectionTitle>
+        <div
+          className={
+            'grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
+          }
+        >
+          <CallEndedReasonChart />
         </div>
       </section>
     </div>

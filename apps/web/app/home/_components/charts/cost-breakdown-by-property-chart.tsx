@@ -55,35 +55,35 @@ export function CostBreakdownByPropertyChart() {
   const chartData = [
     {
       week: 'Week 1',
-      property1: 1100,
-      property2: 1400,
-      property3: 1200,
-      property4: 1300,
-      total: 5000,
+      property1: 100,
+      property2: 140,
+      property3: 120,
+      property4: 130,
+      total: 500,
     },
     {
       week: 'Week 2',
-      property1: 800,
-      property2: 1000,
-      property3: 1200,
-      property4: 1100,
-      total: 4100,
+      property1: 80,
+      property2: 100,
+      property3: 120,
+      property4: 110,
+      total: 410,
     },
     {
       week: 'Week 3',
-      property1: 1400,
-      property2: 1500,
-      property3: 1600,
-      property4: 1500,
-      total: 6000,
+      property1: 140,
+      property2: 150,
+      property3: 160,
+      property4: 150,
+      total: 600,
     },
     {
       week: 'Week 4',
-      property1: 800,
-      property2: 1000,
-      property3: 1200,
-      property4: 1000,
-      total: 4000,
+      property1: 80,
+      property2: 100,
+      property3: 120,
+      property4: 100,
+      total: 400,
     },
   ];
 
@@ -160,6 +160,7 @@ export function CostBreakdownByPropertyChart() {
               tickLine={false}
               tickMargin={5}
               axisLine={false}
+              unit="$"
             />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <ChartLegend
