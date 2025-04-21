@@ -135,7 +135,7 @@ export function CallMinutesChartByProperty() {
           <span
             className={'font-heading text-brand-800 text-2xl font-semibold'}
           >
-            Minutes
+            Mins
           </span>
         </div>
       </CardHeader>

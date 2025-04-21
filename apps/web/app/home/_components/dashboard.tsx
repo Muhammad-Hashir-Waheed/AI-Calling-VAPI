@@ -1,5 +1,6 @@
 'use client';
 
+import { AverageCallDurationByBatchChart } from './charts/average-call-duration-by-batch-chart';
 import { CallEndedReasonChart } from './charts/call-ended-reason-chart';
 import { CallMinutesChartByBot } from './charts/call-minutes-chart-by-bot';
 import { CallMinutesChartByProperty } from './charts/call-minutes-chart-by-property';
@@ -47,6 +48,7 @@ export default function Dashboard() {
           }
         >
           <CallEndedReasonChart />
+          <AverageCallDurationByBatchChart />
         </div>
       </section>
     </div>

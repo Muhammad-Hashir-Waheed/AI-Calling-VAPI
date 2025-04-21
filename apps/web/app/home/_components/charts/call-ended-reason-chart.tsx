@@ -220,7 +220,7 @@ export function CallEndedReasonChart() {
         <CardContent className="w-full p-0">
           <ChartContainer
             config={chartConfig}
-            className="m-0 min-h-[223px] w-full justify-between p-0"
+            className="m-0 min-h-[190px] w-full justify-between p-0"
           >
             <BarChart
               data={chartData}
@@ -250,7 +250,6 @@ export function CallEndedReasonChart() {
                 className="w-full gap-1 text-[8px] [&>div]:w-min"
               />
               <Bar
-                id="agentDisconnected"
                 dataKey="agentDisconnected"
                 fill="#3B82F6"
                 barSize={30}
@@ -258,7 +257,6 @@ export function CallEndedReasonChart() {
                 shape={CustomBar}
               />
               <Bar
-                id="completedSuccessfully"
                 dataKey="completedSuccessfully"
                 fill="#22C55E"
                 barSize={30}
@@ -266,7 +264,6 @@ export function CallEndedReasonChart() {
                 shape={CustomBar}
               />
               <Bar
-                id="voicemailReached"
                 dataKey="voicemailReached"
                 fill="#6B3FE8"
                 barSize={30}
@@ -274,14 +271,12 @@ export function CallEndedReasonChart() {
                 shape={CustomBar}
               />
               <Bar
-                id="noAnswer"
                 dataKey="noAnswer"
                 fill="#6B7280"
                 barSize={30}
                 shape={CustomBar}
               />
               <Bar
-                id="customerHungUp"
                 dataKey="customerHungUp"
                 fill="#EF4444"
                 barSize={100}
