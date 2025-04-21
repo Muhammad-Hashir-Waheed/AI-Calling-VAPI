@@ -28,7 +28,7 @@ import {
 
 import { Figure, Trend } from './common-chart-components';
 
-export function CallMinutesChartByProperty() {
+export function CostBreakdownByPropertyChart() {
   const months = Array.from({ length: 12 }, (_, i) =>
     new Intl.DateTimeFormat('en', { month: 'long' }).format(new Date(2000, i)),
   );
@@ -95,8 +95,8 @@ export function CallMinutesChartByProperty() {
             'text-brand-slate-800 flex items-center justify-between gap-2.5 font-bold'
           }
         >
-          <span>Total Call Minutes By Property</span>
-          <Trend trend={'up'}>20%</Trend>
+          <span>Cost Breakdown By Property</span>
+          <Trend trend={'up'}>12%</Trend>
         </CardTitle>
 
         <CardDescription className="text-brand-slate-500 justify-between p-0">
@@ -131,12 +131,7 @@ export function CallMinutesChartByProperty() {
         </CardDescription>
 
         <div className="flex items-center gap-2">
-          <Figure>{Number(6016).toLocaleString()}</Figure>
-          <span
-            className={'font-heading text-brand-800 text-2xl font-semibold'}
-          >
-            Minutes
-          </span>
+          <Figure>${Number(6016).toLocaleString()}</Figure>
         </div>
       </CardHeader>
 

@@ -2,6 +2,8 @@
 
 import { CallMinutesChartByBot } from './charts/call-minutes-chart-by-bot';
 import { CallMinutesChartByProperty } from './charts/call-minutes-chart-by-property';
+import { CostBreakdownByPropertyChart } from './charts/cost-breakdown-by-property-chart';
+import { TotalCallsNumberChart } from './charts/total-calls-number-chart';
 
 export default function Dashboard() {
   function SectionTitle(props: React.PropsWithChildren) {
@@ -31,6 +33,8 @@ export default function Dashboard() {
         >
           <CallMinutesChartByProperty />
           <CallMinutesChartByBot />
+          <TotalCallsNumberChart />
+          <CostBreakdownByPropertyChart />
         </div>
       </section>
     </div>

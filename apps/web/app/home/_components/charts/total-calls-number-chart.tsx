@@ -1,7 +1,18 @@
 'use client';
 
+import { useState } from 'react';
+
 import { ChevronDown } from 'lucide-react';
-import { Bar, BarChart, XAxis, YAxis } from 'recharts';
+import {
+  CartesianGrid,
+  DotProps,
+  Line,
+  LineChart,
+  ReferenceLine,
+  XAxis,
+  YAxis,
+} from 'recharts';
+import { CategoricalChartState } from 'recharts/types/chart/types';
 
 import { Button } from '@kit/ui/button';
 import {
@@ -14,8 +25,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from '@kit/ui/chart';
@@ -25,10 +34,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@kit/ui/dropdown-menu';
+import { Tabs, TabsList, TabsTrigger } from '@kit/ui/tabs';
 
-import { Figure, Trend } from './common-chart-components';
+import { CustomActiveDot, Figure, Trend } from './common-chart-components';
 
-export function CallMinutesChartByProperty() {
+type ViewType = 'bots' | 'property';
+
+export function TotalCallsNumberChart() {
+  const [viewType, setViewType] = useState<ViewType>('bots');
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const months = Array.from({ length: 12 }, (_, i) =>
     new Intl.DateTimeFormat('en', { month: 'long' }).format(new Date(2000, i)),
   );
@@ -55,48 +69,50 @@ export function CallMinutesChartByProperty() {
   const chartData = [
     {
       week: 'Week 1',
-      property1: 1100,
-      property2: 1400,
-      property3: 1200,
-      property4: 1300,
+      property: 1100,
+      Bot: 1100,
       total: 5000,
     },
     {
       week: 'Week 2',
-      property1: 800,
-      property2: 1000,
-      property3: 1200,
-      property4: 1100,
+      property: 100,
+      Bot: 100,
       total: 4100,
     },
     {
       week: 'Week 3',
-      property1: 1400,
-      property2: 1500,
-      property3: 1600,
-      property4: 1500,
+      property: 1400,
+      Bot: 1400,
       total: 6000,
     },
     {
       week: 'Week 4',
-      property1: 800,
-      property2: 1000,
-      property3: 1200,
-      property4: 1000,
+      property: 20,
+      Bot: 20,
       total: 4000,
     },
   ];
 
+  const handleMouseMove = (data: CategoricalChartState) => {
+    if (data && data.activeTooltipIndex !== undefined) {
+      setActiveIndex(data.activeTooltipIndex);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setActiveIndex(null);
+  };
+
   return (
     <Card className="bg-brand-slate-50 border-brand-slate-100 rounded-md p-4 pb-0">
-      <CardHeader className="mb-3 p-0">
+      <CardHeader className="p-0">
         <CardTitle
           className={
             'text-brand-slate-800 flex items-center justify-between gap-2.5 font-bold'
           }
         >
-          <span>Total Call Minutes By Property</span>
-          <Trend trend={'up'}>20%</Trend>
+          <span>Total Number of Calls</span>
+          <Trend trend={'up'}>30%</Trend>
         </CardTitle>
 
         <CardDescription className="text-brand-slate-500 justify-between p-0">
@@ -131,53 +147,91 @@ export function CallMinutesChartByProperty() {
         </CardDescription>
 
         <div className="flex items-center gap-2">
-          <Figure>{Number(6016).toLocaleString()}</Figure>
+          <Figure>{Number(1023).toLocaleString()}</Figure>
           <span
             className={'font-heading text-brand-800 text-2xl font-semibold'}
           >
-            Minutes
+            Calls
           </span>
         </div>
       </CardHeader>
 
-      <CardContent className="w-full p-0">
+      <CardContent className="w-full p-0 pt-1.5">
+        <Tabs
+          value={viewType}
+          onValueChange={(v) => setViewType(v as ViewType)}
+          className="mb-5 w-full"
+        >
+          <TabsList className="border-brand-slate-300 h-fit w-full justify-between rounded-[6px] border-1 bg-white">
+            <TabsTrigger
+              value="bots"
+              className="data-[state=active]:bg-brand-50 text-brand-slate-800 flex-1 cursor-pointer rounded-[6px] bg-white py-2 text-xs"
+            >
+              Bots
+            </TabsTrigger>
+            <TabsTrigger
+              value="property"
+              className="data-[state=active]:bg-brand-50 text-brand-slate-800 flex-1 cursor-pointer rounded-[6px] rounded-r-none bg-white py-2 text-xs"
+            >
+              Property
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+
         <ChartContainer
           config={chartConfig}
-          className="m-0 min-h-[223px] w-full justify-between p-0"
+          className="m-0 min-h-[166px] justify-between p-0"
         >
-          <BarChart
+          <LineChart
             accessibilityLayer
             data={chartData}
             margin={{
               left: -26,
-              right: -15,
+              top: 20,
             }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
           >
             <XAxis
               className="text-[8px]"
               dataKey="week"
-              tickLine={false}
+              tickLine={true}
               tickMargin={5}
-              axisLine={false}
+              axisLine={{
+                width: 1,
+                stroke: '#E9E9E9',
+              }}
             />
             <YAxis
               className="text-[8px]"
-              tickLine={false}
               tickMargin={5}
               axisLine={false}
+              tickLine={false}
             />
-            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-            <ChartLegend
-              content={<ChartLegendContent />}
-              verticalAlign="top"
-              iconType="circle"
-              className="mb-5 text-[10px]"
+            <CartesianGrid
+              vertical={true}
+              horizontal={false}
+              strokeDasharray="5 5"
             />
-            <Bar dataKey="property1" stackId="a" fill="#5C2DD4" barSize={28} />
-            <Bar dataKey="property2" stackId="a" fill="#37ADFA" barSize={28} />
-            <Bar dataKey="property3" stackId="a" fill="#A5B4FC" barSize={28} />
-            <Bar dataKey="property4" stackId="a" fill="#94A3B8" barSize={28} />
-          </BarChart>
+            <ChartTooltip content={<ChartTooltipContent />} />
+
+            {activeIndex !== null && (
+              <ReferenceLine
+                x={chartData[activeIndex]?.week}
+                stroke="var(--color-brand-600)"
+                strokeDasharray="3 3"
+              />
+            )}
+            <Line
+              dataKey="property"
+              type="monotone"
+              stroke="var(--color-brand-600)"
+              strokeWidth={3}
+              dot={false}
+              isAnimationActive={false}
+              activeDot={<CustomActiveDot />}
+            />
+          </LineChart>
         </ChartContainer>
       </CardContent>
     </Card>
