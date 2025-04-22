@@ -69,7 +69,7 @@ export function CallEndedReasonChart() {
       agentDisconnected: 140,
       voicemailReached: 120,
       noAnswer: 130,
-      customerHungUp: 34,
+      customerHungUp: 64,
       total: 500,
     },
     {
@@ -78,7 +78,7 @@ export function CallEndedReasonChart() {
       agentDisconnected: 100,
       voicemailReached: 120,
       noAnswer: 110,
-      customerHungUp: 34,
+      customerHungUp: 64,
       total: 410,
     },
     {
@@ -87,7 +87,7 @@ export function CallEndedReasonChart() {
       agentDisconnected: 150,
       voicemailReached: 160,
       noAnswer: 150,
-      customerHungUp: 34,
+      customerHungUp: 64,
       total: 600,
     },
     {
@@ -96,7 +96,7 @@ export function CallEndedReasonChart() {
       agentDisconnected: 100,
       voicemailReached: 120,
       noAnswer: 100,
-      customerHungUp: 34,
+      customerHungUp: 64,
       total: 400,
     },
   ];
@@ -228,6 +228,9 @@ export function CallEndedReasonChart() {
                 left: -26,
                 right: -15,
               }}
+              barCategoryGap={0}
+              barGap={0}
+              barSize={100}
             >
               <XAxis
                 className="text-[8px]"
@@ -252,36 +255,20 @@ export function CallEndedReasonChart() {
               <Bar
                 dataKey="agentDisconnected"
                 fill="#3B82F6"
-                barSize={30}
-                maxBarSize={100}
                 shape={CustomBar}
               />
               <Bar
                 dataKey="completedSuccessfully"
                 fill="#22C55E"
-                barSize={30}
-                maxBarSize={100}
                 shape={CustomBar}
               />
               <Bar
                 dataKey="voicemailReached"
                 fill="#6B3FE8"
-                barSize={30}
-                maxBarSize={100}
                 shape={CustomBar}
               />
-              <Bar
-                dataKey="noAnswer"
-                fill="#6B7280"
-                barSize={30}
-                shape={CustomBar}
-              />
-              <Bar
-                dataKey="customerHungUp"
-                fill="#EF4444"
-                barSize={100}
-                shape={CustomBar}
-              />
+              <Bar dataKey="noAnswer" fill="#6B7280" shape={CustomBar} />
+              <Bar dataKey="customerHungUp" fill="#EF4444" shape={CustomBar} />
             </BarChart>
           </ChartContainer>
         </CardContent>
