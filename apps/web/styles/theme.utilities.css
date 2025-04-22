@@ -1,5 +1,180 @@
 @utility container {
   margin-inline: auto;
 
-  @apply xl:max-w-[80rem] px-8;
+  @apply px-8 xl:max-w-[80rem];
+}
+
+/* Typography Utilities */
+@utility textstyle-heading-1 {
+  color: var(--color-slate-900);
+
+  /* h1 */
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 100% */
+  letter-spacing: -0.576px;
+}
+
+@utility textstyle-heading-2 {
+  color: var(--color-slate-900);
+
+  /* h2 */
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px; /* 120% */
+  letter-spacing: -0.225px;
+}
+
+@utility textstyle-heading-3 {
+  color: var(--color-slate-900);
+
+  /* h3 */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.144px;
+}
+
+@utility textstyle-heading-4 {
+  color: var(--color-slate-900);
+
+  /* h4 */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.1px;
+}
+
+@utility textstyle-paragraph {
+  color: var(--color-slate-900);
+
+  /* p */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 175% */
+}
+
+@utility textstyle-blockquote {
+  color: var(--color-slate-900);
+
+  /* blockquote */
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+@utility textstyle-table-head {
+  color: var(--color-slate-800);
+
+  /* table head */
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 200% */
+}
+
+@utility textstyle-table-item {
+  color: var(--color-slate-800);
+
+  /* table item */
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 200% */
+}
+
+@utility textstyle-list {
+  color: var(--color-slate-800);
+
+  /* list */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+@utility textstyle-inline-code {
+  color: var(--color-slate-900);
+
+  /* inline code */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+}
+
+@utility textstyle-lead {
+  color: var(--color-slate-900);
+
+  /* lead */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 140% */
+}
+
+@utility textstyle-large {
+  color: var(--color-slate-900);
+
+  /* large */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 155.556% */
+}
+
+@utility textstyle-small {
+  color: var(--color-slate-900);
+
+  /* small *
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 14px; /* 100% */
+}
+
+@utility textstyle-description {
+  color: var(--color-slate-500);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+@utility textstyle-input-label {
+  color: var(--color-brand-800);
+
+  /* subtle-medium */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
+
+@utility textstyle-input-placeholder {
+  color: var(--color-slate-400);
+
+  /* p-ui */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+@utility textstyle-detail {
+  color: var(--color-slate-800);
+
+  /* detail */
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 166.667% */
 }
