@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
@@ -85,17 +87,12 @@ export function PasswordSignInForm({
 
               <FormMessage />
 
-              {/* <Button
-                asChild
-                type={'button'}
-                size={'sm'}
-                variant={'link'}
-                className={'text-xs'}
+              <Link
+                href={'/auth/password-reset'}
+                className="textstyle-description w-full text-left underline"
               >
-                <Link href={'/auth/password-reset'}>
-                  <Trans i18nKey={'auth:passwordForgottenQuestion'} />
-                </Link>
-              </Button> */}
+                <Trans i18nKey={'Forgot Password?'} />
+              </Link>
             </FormItem>
           )}
         />
