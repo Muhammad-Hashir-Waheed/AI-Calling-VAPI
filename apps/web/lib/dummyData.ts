@@ -1,7 +1,7 @@
 export const dummyLiveProperties = [
   {
     id: 1,
-    imageUrl: 'https://picsum.photos/200/300?random=1',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Nature',
     headline: 'Discover the Beauty of the Wilderness',
     description:
@@ -9,7 +9,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 2,
-    imageUrl: 'https://picsum.photos/200/300?random=2',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Technology',
     headline: 'Innovations Shaping the Future',
     description:
@@ -17,7 +17,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 3,
-    imageUrl: 'https://picsum.photos/200/300?random=3',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Travel',
     headline: 'Hidden Gems of Southeast Asia',
     description:
@@ -25,7 +25,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 4,
-    imageUrl: 'https://picsum.photos/200/300?random=4',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Food',
     headline: 'Culinary Delights from Around the World',
     description:
@@ -33,7 +33,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 5,
-    imageUrl: 'https://picsum.photos/200/300?random=5',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Fashion',
     headline: 'Spring Collection Trends 2024',
     description:
@@ -41,7 +41,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 6,
-    imageUrl: 'https://picsum.photos/200/300?random=6',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Sports',
     headline: 'Pushing Athletic Limits',
     description:
@@ -49,7 +49,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 7,
-    imageUrl: 'https://picsum.photos/200/300?random=7',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Art',
     headline: 'Modern Art Exhibition Highlights',
     description:
@@ -57,7 +57,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 8,
-    imageUrl: 'https://picsum.photos/200/300?random=8',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Music',
     headline: 'Emerging Artists to Watch',
     description:
@@ -65,7 +65,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 9,
-    imageUrl: 'https://picsum.photos/200/300?random=9',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Fitness',
     headline: 'New Wellness Movement',
     description:
@@ -73,7 +73,7 @@ export const dummyLiveProperties = [
   },
   {
     id: 10,
-    imageUrl: 'https://picsum.photos/200/300?random=10',
+    imageUrl: '/images/dummy/dummyPropertyImage.jpeg',
     label: 'Business',
     headline: 'Navigating the Corporate Landscape',
     description: 'Strategies for sustainable growth in competitive markets.',

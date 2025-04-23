@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
+import { getUserExistsByEmail } from '../get-user-exists-by-email';
 import { useSupabase } from './use-supabase';
 
 interface RequestPasswordResetMutationParams {
@@ -20,6 +21,10 @@ export function useRequestResetPassword() {
   const mutationKey = ['auth', 'reset-password'];
 
   const mutationFn = async (params: RequestPasswordResetMutationParams) => {
+    const emailExists = await getUserExistsByEmail(params.email);
+
+    if (!emailExists) throw Error('Email does not exist');
+
     const { error, data } = await client.auth.resetPasswordForEmail(
       params.email,
       {

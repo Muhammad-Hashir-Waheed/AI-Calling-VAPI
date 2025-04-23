@@ -71,7 +71,7 @@ export function OauthProviders(props: {
                 key={provider}
                 providerId={provider}
                 onClick={() => {
-                  // TODO: Remove when OAuth provider details are available
+                  // TODO: Remove when OAuth provider details are available and deployment is ready
                   return;
                   const origin = window.location.origin;
                   const queryParams = new URLSearchParams();
