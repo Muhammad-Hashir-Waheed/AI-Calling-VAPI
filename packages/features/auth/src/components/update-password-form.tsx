@@ -68,11 +68,16 @@ export function UpdatePasswordForm(params: { redirectTo: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <Trans i18nKey={'common:password'} />
+                    <Trans i18nKey={'Password'} />
                   </FormLabel>
 
                   <FormControl>
-                    <Input required type="password" {...field} />
+                    <Input
+                      required
+                      type="password"
+                      placeholder="Password"
+                      {...field}
+                    />
                   </FormControl>
 
                   <FormMessage />
@@ -85,11 +90,16 @@ export function UpdatePasswordForm(params: { redirectTo: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <Trans i18nKey={'common:repeatPassword'} />
+                    <Trans i18nKey={'Re-Type Password'} />
                   </FormLabel>
 
                   <FormControl>
-                    <Input required type="password" {...field} />
+                    <Input
+                      required
+                      type="password"
+                      placeholder="Re-Type Password"
+                      {...field}
+                    />
                   </FormControl>
 
                   <FormMessage />
@@ -100,7 +110,10 @@ export function UpdatePasswordForm(params: { redirectTo: string }) {
             <Button
               disabled={updateUser.isPending}
               type="submit"
-              className={'w-full'}
+              className={
+                'group bg-brand-800 w-full cursor-pointer rounded-[6px]'
+              }
+              size="lg"
             >
               <Trans i18nKey={'auth:passwordResetLabel'} />
             </Button>
