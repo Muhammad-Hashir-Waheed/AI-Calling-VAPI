@@ -89,7 +89,7 @@ export function CallMinutesChartByProperty() {
 
   return (
     <Card className="bg-brand-slate-50 border-brand-slate-100 rounded-md p-4 pb-0">
-      <CardHeader className="p-0">
+      <CardHeader className="mb-3 p-0">
         <CardTitle
           className={
             'text-brand-slate-800 flex items-center justify-between gap-2.5 font-bold'
@@ -135,7 +135,7 @@ export function CallMinutesChartByProperty() {
           <span
             className={'font-heading text-brand-800 text-2xl font-semibold'}
           >
-            Minutes
+            Mins
           </span>
         </div>
       </CardHeader>
@@ -143,9 +143,16 @@ export function CallMinutesChartByProperty() {
       <CardContent className="w-full p-0">
         <ChartContainer
           config={chartConfig}
-          className="m-0 -ml-5 min-h-[223px] w-[110%] justify-between p-0"
+          className="m-0 min-h-[223px] w-full justify-between p-0"
         >
-          <BarChart accessibilityLayer data={chartData} width={730}>
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: -26,
+              right: -15,
+            }}
+          >
             <XAxis
               className="text-[8px]"
               dataKey="week"
@@ -164,7 +171,7 @@ export function CallMinutesChartByProperty() {
               content={<ChartLegendContent />}
               verticalAlign="top"
               iconType="circle"
-              className="mb-8 text-[10px]"
+              className="mb-5 text-[10px]"
             />
             <Bar dataKey="property1" stackId="a" fill="#5C2DD4" barSize={28} />
             <Bar dataKey="property2" stackId="a" fill="#37ADFA" barSize={28} />

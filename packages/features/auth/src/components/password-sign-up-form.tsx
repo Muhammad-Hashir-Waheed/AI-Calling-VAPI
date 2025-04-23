@@ -62,9 +62,9 @@ export function PasswordSignUpForm({
           control={form.control}
           name={'email'}
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <Trans i18nKey={'common:emailAddress'} />
+            <FormItem className="mb-5">
+              <FormLabel className="textstyle-input-label">
+                <Trans i18nKey={'Email'} />
               </FormLabel>
 
               <FormControl>
@@ -86,8 +86,8 @@ export function PasswordSignUpForm({
           control={form.control}
           name={'password'}
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>
+            <FormItem className="mb-5">
+              <FormLabel className="textstyle-input-label">
                 <Trans i18nKey={'common:password'} />
               </FormLabel>
 
@@ -96,7 +96,7 @@ export function PasswordSignUpForm({
                   required
                   data-test={'password-input'}
                   type="password"
-                  placeholder={''}
+                  placeholder={'Password'}
                   {...field}
                 />
               </FormControl>
@@ -110,9 +110,9 @@ export function PasswordSignUpForm({
           control={form.control}
           name={'repeatPassword'}
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <Trans i18nKey={'auth:repeatPassword'} />
+            <FormItem className="mb-5">
+              <FormLabel className="textstyle-input-label">
+                <Trans i18nKey={'Re-Type Password'} />
               </FormLabel>
 
               <FormControl>
@@ -120,14 +120,14 @@ export function PasswordSignUpForm({
                   required
                   data-test={'repeat-password-input'}
                   type="password"
-                  placeholder={''}
+                  placeholder={'Re-Type Password'}
                   {...field}
                 />
               </FormControl>
 
               <FormMessage />
 
-              <FormDescription className={'pb-2 text-xs'}>
+              <FormDescription className={'textstyle-description pb-2 text-xs'}>
                 <Trans i18nKey={'auth:repeatPasswordHint'} />
               </FormDescription>
             </FormItem>
@@ -140,23 +140,13 @@ export function PasswordSignUpForm({
 
         <Button
           data-test={'auth-submit-button'}
-          className={'w-full'}
+          className={'group bg-brand-800 w-full cursor-pointer rounded-[6px]'}
           type="submit"
           disabled={loading}
         >
           <If
             condition={loading}
-            fallback={
-              <>
-                <Trans i18nKey={'auth:signUpWithEmail'} />
-
-                <ArrowRight
-                  className={
-                    'zoom-in animate-in slide-in-from-left-2 fill-mode-both h-4 delay-500 duration-500'
-                  }
-                />
-              </>
-            }
+            fallback={<Trans i18nKey={'auth:signUpWithEmail'} />}
           >
             <Trans i18nKey={'auth:signingUp'} />
           </If>

@@ -3,9 +3,7 @@
 import Link from 'next/link';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import type { z } from 'zod';
 
 import { Button } from '@kit/ui/button';
@@ -30,8 +28,6 @@ export function PasswordSignInForm({
   onSubmit: (params: z.infer<typeof PasswordSignInSchema>) => unknown;
   loading: boolean;
 }) {
-  const { t } = useTranslation('auth');
-
   const form = useForm<z.infer<typeof PasswordSignInSchema>>({
     resolver: zodResolver(PasswordSignInSchema),
     defaultValues: {
@@ -50,9 +46,9 @@ export function PasswordSignInForm({
           control={form.control}
           name={'email'}
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <Trans i18nKey={'common:emailAddress'} />
+            <FormItem className="mb-5">
+              <FormLabel className="textstyle-input-label">
+                <Trans i18nKey={'Email'} />
               </FormLabel>
 
               <FormControl>
@@ -60,7 +56,7 @@ export function PasswordSignInForm({
                   data-test={'email-input'}
                   required
                   type="email"
-                  placeholder={t('emailPlaceholder')}
+                  placeholder={'Email'}
                   {...field}
                 />
               </FormControl>
@@ -74,8 +70,8 @@ export function PasswordSignInForm({
           control={form.control}
           name={'password'}
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>
+            <FormItem className="mb-5">
+              <FormLabel className="textstyle-input-label">
                 <Trans i18nKey={'common:password'} />
               </FormLabel>
 
@@ -84,47 +80,33 @@ export function PasswordSignInForm({
                   required
                   data-test={'password-input'}
                   type="password"
-                  placeholder={''}
+                  placeholder={'Password'}
                   {...field}
                 />
               </FormControl>
 
               <FormMessage />
 
-              <Button
-                asChild
-                type={'button'}
-                size={'sm'}
-                variant={'link'}
-                className={'text-xs'}
+              <Link
+                href={'/auth/password-reset'}
+                className="textstyle-description w-full text-left underline"
               >
-                <Link href={'/auth/password-reset'}>
-                  <Trans i18nKey={'auth:passwordForgottenQuestion'} />
-                </Link>
-              </Button>
+                <Trans i18nKey={'Forgot Password?'} />
+              </Link>
             </FormItem>
           )}
         />
 
         <Button
           data-test="auth-submit-button"
-          className={'group w-full'}
+          className={'group bg-brand-800 w-full cursor-pointer rounded-[6px]'}
+          size="lg"
           type="submit"
           disabled={loading}
         >
           <If
             condition={loading}
-            fallback={
-              <>
-                <Trans i18nKey={'auth:signInWithEmail'} />
-
-                <ArrowRight
-                  className={
-                    'zoom-in animate-in slide-in-from-left-2 fill-mode-both h-4 delay-500 duration-500'
-                  }
-                />
-              </>
-            }
+            fallback={<Trans i18nKey={'Sign in with Email'} />}
           >
             <Trans i18nKey={'auth:signingIn'} />
           </If>
