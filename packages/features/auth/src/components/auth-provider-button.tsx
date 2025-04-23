@@ -12,11 +12,12 @@ export function AuthProviderButton({
 }>) {
   return (
     <Button
-      className={'flex w-full space-x-2 text-center'}
+      className={'flex w-full space-x-2 text-center text-xs font-medium'}
       data-provider={providerId}
       data-test={'auth-provider-button'}
       variant={'outline'}
       onClick={onClick}
+      size="lg"
     >
       <OauthProviderLogoImage providerId={providerId} />
 

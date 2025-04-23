@@ -49,7 +49,13 @@ export function SignInMethodsContainer(props: {
       </If>
 
       <If condition={props.providers.oAuth.length}>
-        <Separator />
+        <div className="flex items-center justify-between">
+          <div className="bg-border h-px w-[60%]" />
+          <p className="text-brand-slate-500 w-full text-center text-xs leading-5 uppercase">
+            OR CONTINUE WITH
+          </p>
+          <div className="bg-border h-px w-[60%]" />
+        </div>
 
         <OauthProviders
           enabledProviders={props.providers.oAuth}

@@ -23,9 +23,15 @@ const redirectPath = `${callback}?next=${passwordUpdate}`;
 function PasswordResetPage() {
   return (
     <>
-      <Heading level={5} className={'tracking-tight'}>
-        <Trans i18nKey={'auth:passwordResetLabel'} />
-      </Heading>
+      <div>
+        <h5 className="textstyle-large mb-1 text-center">
+          <Trans i18nKey={'Reset Password'} />
+        </h5>
+        <p className="textstyle-description text-center">
+          Enter your email address below. You will receive a link to reset your
+          password.
+        </p>
+      </div>
 
       <div className={'flex flex-col space-y-4'}>
         <PasswordResetRequestContainer redirectPath={redirectPath} />

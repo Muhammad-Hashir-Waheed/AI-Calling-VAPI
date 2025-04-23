@@ -26,9 +26,14 @@ const paths = {
 function SignUpPage() {
   return (
     <>
-      <Heading level={5} className={'tracking-tight'}>
-        <Trans i18nKey={'auth:signUpHeading'} />
-      </Heading>
+      <div>
+        <h5 className="textstyle-large mb-1 text-center">
+          <Trans i18nKey={'Create an account'} />
+        </h5>
+        <p className="textstyle-description text-center">
+          Fill the form below to create an account.
+        </p>
+      </div>
 
       <SignUpMethodsContainer
         providers={authConfig.providers}
@@ -38,7 +43,10 @@ function SignUpPage() {
 
       <div className={'justify-centers flex'}>
         <Button asChild variant={'link'} size={'sm'}>
-          <Link href={pathsConfig.auth.signIn}>
+          <Link
+            href={pathsConfig.auth.signIn}
+            className="textstyle-detail my-2 w-full text-center"
+          >
             <Trans i18nKey={'auth:alreadyHaveAnAccount'} />
           </Link>
         </Button>

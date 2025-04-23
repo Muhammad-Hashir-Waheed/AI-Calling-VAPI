@@ -28,26 +28,26 @@ import {
 
 import { Figure, Trend } from './common-chart-components';
 
-export function CallMinutesChartByBot() {
+export function CostBreakdownByPropertyChart() {
   const months = Array.from({ length: 12 }, (_, i) =>
     new Intl.DateTimeFormat('en', { month: 'long' }).format(new Date(2000, i)),
   );
 
   const chartConfig = {
     property1: {
-      label: 'Bot 1',
+      label: 'Property 1',
       color: 'hsl(var(--chart-1))',
     },
     property2: {
-      label: 'Bot 2',
+      label: 'Property 2',
       color: 'hsl(var(--chart-2))',
     },
     property3: {
-      label: 'Bot 3',
+      label: 'Property 3',
       color: 'hsl(var(--chart-3))',
     },
     property4: {
-      label: 'Bot 4',
+      label: 'Property 4',
       color: 'hsl(var(--chart-4))',
     },
   } satisfies ChartConfig;
@@ -55,35 +55,35 @@ export function CallMinutesChartByBot() {
   const chartData = [
     {
       week: 'Week 1',
-      property1: 1100,
-      property2: 1400,
-      property3: 1200,
-      property4: 1300,
-      total: 5000,
+      property1: 100,
+      property2: 140,
+      property3: 120,
+      property4: 130,
+      total: 500,
     },
     {
       week: 'Week 2',
-      property1: 800,
-      property2: 1000,
-      property3: 1200,
-      property4: 1100,
-      total: 4100,
+      property1: 80,
+      property2: 100,
+      property3: 120,
+      property4: 110,
+      total: 410,
     },
     {
       week: 'Week 3',
-      property1: 1400,
-      property2: 1500,
-      property3: 1600,
-      property4: 1500,
-      total: 6000,
+      property1: 140,
+      property2: 150,
+      property3: 160,
+      property4: 150,
+      total: 600,
     },
     {
       week: 'Week 4',
-      property1: 800,
-      property2: 1000,
-      property3: 1200,
-      property4: 1000,
-      total: 4000,
+      property1: 80,
+      property2: 100,
+      property3: 120,
+      property4: 100,
+      total: 400,
     },
   ];
 
@@ -95,8 +95,8 @@ export function CallMinutesChartByBot() {
             'text-brand-slate-800 flex items-center justify-between gap-2.5 font-bold'
           }
         >
-          <span>Total Call Minutes By Bots</span>
-          <Trend trend={'up'}>20%</Trend>
+          <span>Cost Breakdown By Property</span>
+          <Trend trend={'up'}>12%</Trend>
         </CardTitle>
 
         <CardDescription className="text-brand-slate-500 justify-between p-0">
@@ -131,12 +131,7 @@ export function CallMinutesChartByBot() {
         </CardDescription>
 
         <div className="flex items-center gap-2">
-          <Figure>{Number(6016).toLocaleString()}</Figure>
-          <span
-            className={'font-heading text-brand-800 text-2xl font-semibold'}
-          >
-            Mins
-          </span>
+          <Figure>${Number(6016).toLocaleString()}</Figure>
         </div>
       </CardHeader>
 
@@ -165,13 +160,14 @@ export function CallMinutesChartByBot() {
               tickLine={false}
               tickMargin={5}
               axisLine={false}
+              unit="$"
             />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <ChartLegend
               content={<ChartLegendContent />}
               verticalAlign="top"
               iconType="circle"
-              className="mb-5 rounded-full text-[10px]"
+              className="mb-5 text-[10px]"
             />
             <Bar dataKey="property1" stackId="a" fill="#5C2DD4" barSize={28} />
             <Bar dataKey="property2" stackId="a" fill="#37ADFA" barSize={28} />

@@ -26,15 +26,23 @@ const paths = {
 function SignInPage() {
   return (
     <>
-      <Heading level={5} className={'tracking-tight'}>
-        <Trans i18nKey={'auth:signInHeading'} />
-      </Heading>
+      <div>
+        <h5 className="textstyle-large mb-1 text-center">
+          <Trans i18nKey={'auth:signInHeading'} />
+        </h5>
+        <p className="textstyle-description text-center">
+          Welcome back! Please enter your details
+        </p>
+      </div>
 
       <SignInMethodsContainer paths={paths} providers={authConfig.providers} />
 
       <div className={'flex justify-center'}>
         <Button asChild variant={'link'} size={'sm'}>
-          <Link href={pathsConfig.auth.signUp}>
+          <Link
+            href={pathsConfig.auth.signUp}
+            className="textstyle-detail my-2 w-full text-center"
+          >
             <Trans i18nKey={'auth:doNotHaveAccountYet'} />
           </Link>
         </Button>

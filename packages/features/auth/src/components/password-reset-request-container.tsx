@@ -76,27 +76,21 @@ export function PasswordResetRequestContainer(params: {
             className={'w-full'}
           >
             <div className={'flex flex-col space-y-4'}>
-              <div>
-                <p className={'text-muted-foreground text-sm'}>
-                  <Trans i18nKey={'auth:passwordResetSubheading'} />
-                </p>
-              </div>
-
               <AuthErrorAlert error={error} />
 
               <FormField
                 name={'email'}
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="mb-5">
                     <FormLabel>
-                      <Trans i18nKey={'common:emailAddress'} />
+                      <Trans i18nKey={'Email'} />
                     </FormLabel>
 
                     <FormControl>
                       <Input
                         required
                         type="email"
-                        placeholder={t('emailPlaceholder')}
+                        placeholder={'Email'}
                         {...field}
                       />
                     </FormControl>
@@ -106,7 +100,14 @@ export function PasswordResetRequestContainer(params: {
                 )}
               />
 
-              <Button disabled={resetPasswordMutation.isPending} type="submit">
+              <Button
+                className={
+                  'group bg-brand-800 w-full cursor-pointer rounded-[6px]'
+                }
+                size="lg"
+                disabled={resetPasswordMutation.isPending}
+                type="submit"
+              >
                 <Trans i18nKey={'auth:passwordResetLabel'} />
               </Button>
             </div>
