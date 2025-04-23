@@ -20,7 +20,13 @@ export function AuthErrorAlert({
     return null;
   }
 
-  const DefaultError = <Trans i18nKey="auth:errors.default" />;
+  const DefaultError = (
+    <Trans
+      i18nKey={
+        (error instanceof Error && error.message) || 'auth:errors.default'
+      }
+    />
+  );
   const errorCode = error instanceof Error ? error.message : error;
 
   return (

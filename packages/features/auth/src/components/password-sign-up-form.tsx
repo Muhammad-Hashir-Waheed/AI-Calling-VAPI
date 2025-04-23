@@ -72,7 +72,7 @@ export function PasswordSignUpForm({
                   data-test={'email-input'}
                   required
                   type="email"
-                  placeholder={t('emailPlaceholder')}
+                  placeholder={t('Email')}
                   {...field}
                 />
               </FormControl>
@@ -143,6 +143,7 @@ export function PasswordSignUpForm({
           className={'group bg-brand-800 w-full cursor-pointer rounded-[6px]'}
           type="submit"
           disabled={loading}
+          size={'lg'}
         >
           <If
             condition={loading}
