@@ -37,12 +37,7 @@ export function PropertyCard({
     >
       <div className="relative">
         <div className="relative aspect-[3/2] w-full">
-          <Image
-            src={imageUrl || '/placeholder.svg?height=300&width=400'}
-            alt={headline}
-            fill
-            objectFit="cover"
-          />
+          <Image src={imageUrl || ''} alt={headline} fill objectFit="cover" />
         </div>
         {label && (
           <Badge className="bg-brand-800 hover:bg-brand-900 absolute top-4 right-3 rounded-full px-4 py-1 text-xs font-medium text-white">

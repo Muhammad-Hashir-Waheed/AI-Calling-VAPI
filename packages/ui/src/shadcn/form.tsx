@@ -91,15 +91,9 @@ FormItem.displayName = 'FormItem';
 const FormLabel: React.FC<
   React.ComponentPropsWithRef<typeof LabelPrimitive.Root>
 > = ({ className, ...props }) => {
-  const { error, formItemId } = useFormField();
+  const { formItemId } = useFormField();
 
-  return (
-    <Label
-      className={cn(error && 'text-destructive', className)}
-      htmlFor={formItemId}
-      {...props}
-    />
-  );
+  return <Label className={className} htmlFor={formItemId} {...props} />;
 };
 FormLabel.displayName = 'FormLabel';
 

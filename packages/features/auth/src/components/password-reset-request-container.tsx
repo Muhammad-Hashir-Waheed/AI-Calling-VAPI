@@ -2,7 +2,6 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
 import { useRequestResetPassword } from '@kit/supabase/hooks/use-request-reset-password';
@@ -30,7 +29,6 @@ const PasswordResetSchema = z.object({
 export function PasswordResetRequestContainer(params: {
   redirectPath: string;
 }) {
-  const { t } = useTranslation('auth');
   const resetPasswordMutation = useRequestResetPassword();
   const { captchaToken, resetCaptchaToken } = useCaptchaToken();
 
@@ -54,66 +52,64 @@ export function PasswordResetRequestContainer(params: {
         </Alert>
       </If>
 
-      <If condition={!resetPasswordMutation.data}>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(({ email }) => {
-              const redirectTo = new URL(
-                params.redirectPath,
-                window.location.origin,
-              ).href;
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(({ email }) => {
+            const redirectTo = new URL(
+              params.redirectPath,
+              window.location.origin,
+            ).href;
 
-              return resetPasswordMutation
-                .mutateAsync({
-                  email,
-                  redirectTo,
-                  captchaToken,
-                })
-                .catch(() => {
-                  resetCaptchaToken();
-                });
-            })}
-            className={'w-full'}
-          >
-            <div className={'flex flex-col space-y-4'}>
-              <AuthErrorAlert error={error} />
+            return resetPasswordMutation
+              .mutateAsync({
+                email,
+                redirectTo,
+                captchaToken,
+              })
+              .catch(() => {
+                resetCaptchaToken();
+              });
+          })}
+          className={'w-full'}
+        >
+          <div className={'flex flex-col space-y-4'}>
+            <AuthErrorAlert error={error} />
 
-              <FormField
-                name={'email'}
-                render={({ field }) => (
-                  <FormItem className="mb-5">
-                    <FormLabel>
-                      <Trans i18nKey={'Email'} />
-                    </FormLabel>
+            <FormField
+              name={'email'}
+              render={({ field }) => (
+                <FormItem className="mb-5">
+                  <FormLabel>
+                    <Trans i18nKey={'Email'} />
+                  </FormLabel>
 
-                    <FormControl>
-                      <Input
-                        required
-                        type="email"
-                        placeholder={'Email'}
-                        {...field}
-                      />
-                    </FormControl>
+                  <FormControl>
+                    <Input
+                      required
+                      type="email"
+                      placeholder={'Email'}
+                      {...field}
+                    />
+                  </FormControl>
 
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-              <Button
-                className={
-                  'group bg-brand-800 w-full cursor-pointer rounded-[6px]'
-                }
-                size="lg"
-                disabled={resetPasswordMutation.isPending}
-                type="submit"
-              >
-                <Trans i18nKey={'auth:passwordResetLabel'} />
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </If>
+            <Button
+              className={
+                'group bg-brand-800 w-full cursor-pointer rounded-[6px]'
+              }
+              size="lg"
+              disabled={resetPasswordMutation.isPending}
+              type="submit"
+            >
+              <Trans i18nKey={'auth:passwordResetLabel'} />
+            </Button>
+          </div>
+        </form>
+      </Form>
     </>
   );
 }
